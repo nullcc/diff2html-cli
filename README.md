@@ -123,4 +123,6 @@ This project is inspired in [pretty-diff](https://github.com/scottgonzalez/prett
 
 ---
 
-bin/diff2html -i file -- 4095.diff
+## Show Diff Coverage
+
+`cat xxx.diff | diff2html -c coverage.json -i stdin -F diff_coverage.html`
