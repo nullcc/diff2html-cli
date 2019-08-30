@@ -54,12 +54,16 @@
   "dependencies": {
     "clipboardy": "^2.1.0",
     "diff2html": "git+https://github.com/nullcc/diff2html.git",
+    "istanbul-lib-coverage": "^2.0.5",
+    "istanbul-lib-source-maps": "^3.0.6",
     "open": "^6.4.0",
     "request": "^2.88.0",
+    "source-map": "^0.7.3",
     "yargs": "^14.0.0"
   },
   "devDependencies": {
     "@types/diff2html": "git+https://github.com/nullcc/diff2html-types.git",
+    "@types/istanbul-lib-source-maps": "^1.2.2",
     "@types/jest": "24.0.18",
     "@types/node": "^12.7.2",
     "@types/request": "2.48.2",

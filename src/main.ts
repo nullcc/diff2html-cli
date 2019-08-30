@@ -12,9 +12,8 @@ export async function main(): Promise<void> {
 
     let coverage = null;
     if (configuration.coverage) {
-      coverage = coverageUtils.getCoverage(configuration.coverage);
+      coverage = await coverageUtils.getCoverage(configuration.coverage);
     }
-
     const input = await cli.getInput(configuration.inputSource, argv.extraArguments, configuration.ignore);
 
     if (!input) {
