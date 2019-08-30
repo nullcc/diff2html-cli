@@ -10,7 +10,7 @@ export async function main(): Promise<void> {
     const argv = yargs.setup();
     const [diff2htmlOptions, configuration] = parseArgv(argv);
 
-    let coverage = {};
+    let coverage = null;
     if (configuration.coverage) {
       coverage = coverageUtils.getCoverage(configuration.coverage);
     }
