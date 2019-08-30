@@ -59,7 +59,7 @@
     "yargs": "^14.0.0"
   },
   "devDependencies": {
-    "@types/diff2html": "0.0.5",
+    "@types/diff2html": "git+https://github.com/nullcc/diff2html-types.git",
     "@types/jest": "24.0.18",
     "@types/node": "^12.7.2",
     "@types/request": "2.48.2",
