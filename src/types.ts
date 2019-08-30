@@ -16,4 +16,5 @@ export interface Configuration {
   diffyType?: DiffyType;
   htmlWrapperTemplate: string;
   ignore: string[];
+  coverage: string;
 }

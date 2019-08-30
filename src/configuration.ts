@@ -23,7 +23,8 @@ export function parseArgv(argv: Argv): [Diff2Html.Options, Configuration] {
     inputSource: argv.input,
     diffyType: argv.diffy,
     htmlWrapperTemplate: argv.htmlWrapperTemplate || defaultWrapperTemplate,
-    ignore: argv.ignore || []
+    ignore: argv.ignore || [],
+    coverage: argv.coverage,
   };
 
   return [diff2htmlOptions, configuration];

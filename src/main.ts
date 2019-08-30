@@ -3,11 +3,17 @@ import { parseArgv } from "./configuration";
 import * as log from "./logger";
 import * as utils from "./utils";
 import * as yargs from "./yargs";
+import * as coverageUtils from "./coverage-utils";
 
 export async function main(): Promise<void> {
   try {
     const argv = yargs.setup();
     const [diff2htmlOptions, configuration] = parseArgv(argv);
+
+    let coverage = {};
+    if (configuration.coverage) {
+      coverage = coverageUtils.getCoverage(configuration.coverage);
+    }
 
     const input = await cli.getInput(configuration.inputSource, argv.extraArguments, configuration.ignore);
 
@@ -22,7 +28,7 @@ export async function main(): Promise<void> {
       return;
     }
 
-    const output = cli.getOutput(diff2htmlOptions, configuration, input);
+    const output = cli.getOutput(diff2htmlOptions, configuration, input, coverage);
 
     if (configuration.outputDestinationFile) utils.writeFile(configuration.outputDestinationFile, output);
 

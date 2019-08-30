@@ -17,6 +17,7 @@ export interface Argv {
   htmlWrapperTemplate?: string;
   ignore?: string[];
   extraArguments: string[];
+  coverage: string;
 }
 
 export function setup(): Argv {
@@ -150,6 +151,14 @@ export function setup(): Argv {
         type: "array"
       }
     })
+    .options({
+      coverage: {
+        alias: "c",
+        describe: "Coverage JSON file",
+        nargs: 1,
+        type: "string",
+      }
+    })
     .example(
       "diff2html -s line -f html -d word -i command -o preview -- -M HEAD~1",
       "diff last commit, line by line, word comparison between lines," +
@@ -181,7 +190,8 @@ export function setup(): Argv {
     output: argv.output as OutputType,
     diffy: argv.diffy as DiffyType,
     ignore: (argv.ignore || []).map((e) => e.toString()),
-    extraArguments: argv._ || []
+    extraArguments: argv._ || [],
+    coverage: argv.coverage as string,
   };
 }
 

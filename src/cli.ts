@@ -59,7 +59,7 @@ export async function getInput(inputType: InputType, inputArgs: string[], ignore
   }
 }
 
-export function getOutput(options: Diff2Html.Options, config: Configuration, input: string): string {
+export function getOutput(options: Diff2Html.Options, config: Configuration, input: string, coverage: any): string {
   if (config.htmlWrapperTemplate && !fs.existsSync(config.htmlWrapperTemplate)) {
     throw new Error(`Template ('${config.htmlWrapperTemplate}') not found!`);
   }
@@ -67,7 +67,7 @@ export function getOutput(options: Diff2Html.Options, config: Configuration, inp
   const diffJson = Diff2Html.getJsonFromDiff(input, options);
 
   if (config.formatType === "html") {
-    const htmlContent = Diff2Html.getPrettyHtml(diffJson, { ...options, inputFormat: "json" });
+    const htmlContent = Diff2Html.getPrettyHtml(diffJson, { ...options, inputFormat: "json" }, coverage);
     return prepareHTML(htmlContent, config);
   } else if (config.formatType === "json") {
     return JSON.stringify(diffJson);

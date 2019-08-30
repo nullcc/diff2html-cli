@@ -122,3 +122,5 @@ Copyright 2014-2019 Rodrigo Fernandes. Released under the terms of the MIT licen
 This project is inspired in [pretty-diff](https://github.com/scottgonzalez/pretty-diff) by [Scott González](https://github.com/scottgonzalez).
 
 ---
+
+bin/diff2html -i file -- 4095.diff
