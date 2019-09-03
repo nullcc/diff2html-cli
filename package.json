@@ -36,15 +36,15 @@
   },
   "preferGlobal": true,
   "scripts": {
-    "prepare": "yarn run build",
+    "prepare": "npm run build",
     "build": "tsc",
     "lint": "eslint '*/**/*.{js,jsx,ts,tsx}'",
-    "style": "yarn run lint",
+    "style": "npm run lint",
     "test": "jest",
     "coverage": "jest --collectCoverage",
-    "coverage-html": "yarn run coverage && open ./coverage/index.html",
+    "coverage-html": "npm run coverage && open ./coverage/index.html",
     "codacy": "cat ./coverage/lcov.info | codacy-coverage",
-    "preversion": "yarn run test",
+    "preversion": "npm run test",
     "postversion": "git push && git push --tags"
   },
   "bin": {
