@@ -84,6 +84,10 @@
     "ts-jest": "24.0.2",
     "typescript": "^3.5.3"
   },
+  "bundledDependencies": [
+    "diff2html",
+    "@types/diff2html"
+  ],
   "license": "MIT",
   "files": [
     "bin",
