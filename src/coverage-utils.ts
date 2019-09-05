@@ -8,15 +8,24 @@ export const getCoverage = (file: string): any => {
   return getSourceCodeCoverage(JSON.parse(coverage.toString()));
 };
 
-export const getSourceCodeCoverage = async (compiledJsCoverage: any) => {
+export const getSourceCodeCoverage = async (coverageData: any) => {
   const result = {};
-  for (const key in compiledJsCoverage) {
-    const coverage = compiledJsCoverage[key];
+  const randomFileCov = randomProperty(coverageData);
+  if (!randomFileCov.inputSourceMap) { // already source code coverage data, just return
+    return coverageData
+  }
+  for (const key in coverageData) {
+    const fileCov = coverageData[key];
     const coverageMap = createCoverageMap({});
-    coverageMap.addFileCoverage(coverage);
-    const finder = await new SourceMapConsumer(coverage.inputSourceMap);
+    coverageMap.addFileCoverage(fileCov);
+    const finder = await new SourceMapConsumer(fileCov.inputSourceMap);
     const mapped = transformer.create(() => finder).transform(coverageMap);
     Object.assign(result, mapped.data);
   }
   return result;
+};
+
+const randomProperty = (obj: any) => {
+  const keys = Object.keys(obj);
+  return obj[keys[ keys.length * Math.random() << 0]];
 };
