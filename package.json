@@ -1,6 +1,6 @@
 {
   "name": "@nullcc/diff2html-cli",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "homepage": "https://www.github.com/rtfpessoa/diff2html-cli",
   "description": "Fast Diff to colorized HTML",
   "keywords": [
@@ -59,7 +59,7 @@
     "yargs": "^14.0.0"
   },
   "devDependencies": {
-    "@types/diff2html": "git+https://github.com/nullcc/diff2html-types.git",
+    "@types/nullcc__diff2html": "git+https://github.com/nullcc/diff2html-types.git",
     "@types/istanbul-lib-source-maps": "^1.2.2",
     "@types/jest": "24.0.18",
     "@types/node": "^12.7.2",
@@ -89,6 +89,6 @@
   ],
   "bundleDependencies": [
     "@nullcc/diff2html",
-    "@types/diff2html"
+    "@types/nullcc__diff2html"
   ]
 }

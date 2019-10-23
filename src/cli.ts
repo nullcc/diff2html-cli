@@ -4,7 +4,7 @@ import * as path from "path";
 
 import * as clipboardy from "clipboardy";
 import * as opn from "open";
-import { Diff2Html } from "diff2html";
+import { Diff2Html } from "@nullcc/diff2html";
 
 import * as http from "./http-utils";
 import * as log from "./logger";
@@ -24,7 +24,7 @@ function runGitDiff(gitArgsArr: string[], ignore: string[]): string {
 function prepareHTML(diffHTMLContent: string, config: Configuration): string {
   const template = utils.readFile(config.htmlWrapperTemplate);
 
-  const diff2htmlPath = path.join(path.dirname(require.resolve("diff2html")), "..");
+  const diff2htmlPath = path.join(path.dirname(require.resolve("@nullcc/diff2html")), "..");
 
   const cssFilePath = path.resolve(diff2htmlPath, "dist", "diff2html.min.css");
   const cssContent = utils.readFile(cssFilePath);
