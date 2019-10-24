@@ -8,6 +8,11 @@ export const getCoverage = (file: string): any => {
   return getSourceCodeCoverage(JSON.parse(coverage.toString()));
 };
 
+export const getCoverageFilePatterns = (file: string): any => {
+  const patterns = fs.readFileSync(file);
+  return JSON.parse(patterns.toString());
+};
+
 export const getSourceCodeCoverage = async (coverageData: any) => {
   const result = {};
   const randomFileCov = randomProperty(coverageData);

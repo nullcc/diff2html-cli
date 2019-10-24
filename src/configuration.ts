@@ -25,6 +25,7 @@ export function parseArgv(argv: Argv): [Diff2Html.Options, Configuration] {
     htmlWrapperTemplate: argv.htmlWrapperTemplate || defaultWrapperTemplate,
     ignore: argv.ignore || [],
     coverage: argv.coverage,
+    coverageFilePatterns: argv.coverageFilePatterns,
   };
 
   return [diff2htmlOptions, configuration];

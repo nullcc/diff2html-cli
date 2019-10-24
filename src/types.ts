@@ -17,4 +17,5 @@ export interface Configuration {
   htmlWrapperTemplate: string;
   ignore: string[];
   coverage: string;
+  coverageFilePatterns: string;
 }

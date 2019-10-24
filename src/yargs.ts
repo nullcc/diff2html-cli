@@ -18,6 +18,7 @@ export interface Argv {
   ignore?: string[];
   extraArguments: string[];
   coverage: string;
+  coverageFilePatterns: string;
 }
 
 export function setup(): Argv {
@@ -159,6 +160,14 @@ export function setup(): Argv {
         type: "string",
       }
     })
+    .options({
+      coverageFilePatterns: {
+        alias: "p",
+        describe: "Coverage files patterns",
+        nargs: 1,
+        type: "string",
+      }
+    })
     .example(
       "diff2html -s line -f html -d word -i command -o preview -- -M HEAD~1",
       "diff last commit, line by line, word comparison between lines," +
@@ -192,6 +201,7 @@ export function setup(): Argv {
     ignore: (argv.ignore || []).map((e) => e.toString()),
     extraArguments: argv._ || [],
     coverage: argv.coverage as string,
+    coverageFilePatterns: argv.coverageFilePatterns as string,
   };
 }
 

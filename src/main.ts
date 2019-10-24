@@ -11,8 +11,12 @@ export async function main(): Promise<void> {
     const [diff2htmlOptions, configuration] = parseArgv(argv);
 
     let coverage = null;
+    let coverageFilePatterns =  null;
     if (configuration.coverage) {
       coverage = await coverageUtils.getCoverage(configuration.coverage);
+    }
+    if (configuration.coverageFilePatterns) {
+      coverageFilePatterns = coverageUtils.getCoverageFilePatterns(configuration.coverageFilePatterns);
     }
     const input = await cli.getInput(configuration.inputSource, argv.extraArguments, configuration.ignore);
 
@@ -27,7 +31,7 @@ export async function main(): Promise<void> {
       return;
     }
 
-    const output = cli.getOutput(diff2htmlOptions, configuration, input, coverage);
+    const output = cli.getOutput(diff2htmlOptions, configuration, input, coverage, coverageFilePatterns);
 
     if (configuration.outputDestinationFile) utils.writeFile(configuration.outputDestinationFile, output);
 
